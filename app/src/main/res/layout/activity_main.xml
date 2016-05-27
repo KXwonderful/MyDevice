@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/backgroud"
+    tools:context="com.kxwon.mydevice.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textColor="#01B468"
+        android:text="我的设备管理"/>
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_activateDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:padding="3dp"
+            android:text="激活设备" />
+
+        <Button
+            android:id="@+id/btn_createIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:layout_marginTop="5dp"
+            android:padding="3dp"
+            android:text="创建图标" />
+
+        <Button
+            android:id="@+id/btn_lockDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:layout_marginTop="5dp"
+            android:padding="3dp"
+            android:text="一键锁屏" />
+
+        <Button
+            android:id="@+id/btn_restartDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:layout_marginTop="5dp"
+            android:padding="3dp"
+            android:visibility="gone"
+            android:text="一键重启" />
+
+        <Button
+            android:id="@+id/btn_closeDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:layout_marginTop="5dp"
+            android:padding="3dp"
+            android:visibility="gone"
+            android:text="一键关机" />
+
+        <Button
+            android:id="@+id/btn_clearData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:layout_marginTop="5dp"
+            android:padding="3dp"
+            android:text="清除数据" />
+
+        <Button
+            android:id="@+id/btn_uninstall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
+            android:padding="3dp"
+            android:text="卸载软件" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
