@@ -1,4 +1,4 @@
-package com.kxwon.mydevice;
+package com.kxwon.mydevice.activity;
 
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
@@ -14,6 +14,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.kxwon.mydevice.service.FloatWindowService;
+import com.kxwon.mydevice.view.MyDialog;
+import com.kxwon.mydevice.R;
+import com.kxwon.mydevice.receiver.AdminReceiver;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -21,6 +26,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private Button btn_activateDevice;   //激活设备
     private Button btn_createIcon;       //创建桌边快捷图标
+    private Button btn_openRocket;       //打开火箭
+    private Button btn_closeRocket;      //关闭火箭
     private Button btn_lockDevice;       //一键锁屏
     private Button btn_restartDevice;    //一键重启
     private Button btn_closeDevice;      //一键关机
@@ -48,6 +55,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private void initLayout() {
 
+        btn_openRocket = (Button) findViewById(R.id.btn_openRocket);
+        btn_closeRocket = (Button) findViewById(R.id.btn_closeRocket);
         btn_activateDevice = (Button) findViewById(R.id.btn_activateDevice);
         btn_createIcon = (Button) findViewById(R.id.btn_createIcon);
         btn_lockDevice = (Button) findViewById(R.id.btn_lockDevice);
@@ -56,6 +65,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_clearData = (Button) findViewById(R.id.btn_clearData);
         btn_uninstall = (Button) findViewById(R.id.btn_uninstall);
 
+        btn_openRocket.setOnClickListener(this);
+        btn_closeRocket.setOnClickListener(this);
         btn_activateDevice.setOnClickListener(this);
         btn_createIcon.setOnClickListener(this);
         btn_lockDevice.setOnClickListener(this);
@@ -81,6 +92,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.btn_lockDevice:
                 //一键锁屏
                 lockScreen();
+                break;
+
+            case R.id.btn_openRocket:
+                //打开火箭
+                openRocket();
+                break;
+
+            case R.id.btn_closeRocket:
+                //关闭火箭
+                closeRocket();
                 break;
 
             case R.id.btn_restartDevice:
@@ -194,10 +215,26 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public void lockScreen() {
         if (mDPM.isAdminActive(mDeviceAdminSample)) {// 判断设备管理器是否已经激活
             mDPM.lockNow();// 立即锁屏
-            //mDPM.resetPassword("1234", 0);
+            //mDPM.resetPassword("1234", 0); //锁屏后设置密码
         } else {
             Toast.makeText(this, "必须先激活设备管理器!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    /**
+     * 打开火箭
+     */
+    public void openRocket(){
+        startService(new Intent(this, FloatWindowService.class));
+        //finish();
+    }
+
+    /**
+     * 关闭火箭
+     */
+    public void closeRocket(){
+        stopService(new Intent(this, FloatWindowService.class));
+        //finish();
     }
 
     /**
@@ -231,7 +268,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private class ClearListener implements MyDialog.IDialog {
         @Override
         public void confirm() {
-            mDPM.wipeData(0);// 清除数据,恢复出厂设置
+            //mDPM.wipeData(0);// 清除数据,恢复出厂设置
+            Toast.makeText(MainActivity.this,"已屏蔽该功能",Toast.LENGTH_SHORT).show();
         }
     }
 

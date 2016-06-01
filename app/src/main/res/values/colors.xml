@@ -9,5 +9,7 @@
     <color name="dialog_divider">#d1d1d1</color>
     <color name="button_normal">#D3FF93</color>
     <color name="button_press">#93FF93</color>
+    <color name="btn_normal">#CCCCCC</color>
+    <color name="btn_press">#999999</color>
 
 </resources>

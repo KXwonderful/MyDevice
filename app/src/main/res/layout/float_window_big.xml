@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/big_window_layout"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:background="@mipmap/bg_big"
+	android:orientation="vertical"
+    >
+    <Button 
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dip"
+		android:background="@drawable/btn_selector"
+        android:text="关闭"
+        />
+    <Button 
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+		android:layout_marginTop="3dip"
+		android:layout_marginBottom="5dp"
+		android:background="@drawable/btn_selector"
+        android:text="返回"
+        />
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.kxwon.mydevice;
+package com.kxwon.mydevice.activity;
 
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
@@ -6,6 +6,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.kxwon.mydevice.receiver.AdminReceiver;
 
 /**
  * 一键锁屏

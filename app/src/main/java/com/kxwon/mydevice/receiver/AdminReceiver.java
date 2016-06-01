@@ -1,4 +1,4 @@
-package com.kxwon.mydevice;
+package com.kxwon.mydevice.receiver;
 
 import android.app.admin.DeviceAdminReceiver;
 

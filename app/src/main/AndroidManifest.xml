@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.kxwon.mydevice.LockDevice">
+        <activity android:name=".activity.LockDevice">
             <!-- 目标Activity 需要具备 LAUNCHER功能-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +27,16 @@
 
         </activity>
 
+        <!-- 桌面火箭Activity 设置无标题透明-->
+        <activity
+            android:name=".activity.BackgroundActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+        <!-- receiver-->
         <receiver
             android:label="@string/sample_device_admin"
-            android:name=".AdminReceiver"
+            android:name=".receiver.AdminReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN"
             android:description="@string/sample_device_admin_description">
             <meta-data android:name="android.app.device_admin" android:resource="@xml/device_admin_sample"/>
@@ -38,6 +45,9 @@
 
             </intent-filter>
         </receiver>
+
+        <!-- 桌面火箭service-->
+        <service android:name=".service.FloatWindowService"></service>
     </application>
 
     <!-- 声明 创建和删除快捷方式时声明权限 -->
@@ -53,6 +63,11 @@
 
     <!-- 更改主屏幕中的设置和快捷方式 -->
     <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+
+    <!-- 系统窗口类型权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
 
 
