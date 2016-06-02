@@ -11,5 +11,8 @@
     <color name="button_press">#93FF93</color>
     <color name="btn_normal">#CCCCCC</color>
     <color name="btn_press">#999999</color>
+    <color name="black">#000</color>
+    <color name="test_view_background">#ccffcc</color>
+    <color name="test_background">#333300</color>
 
 </resources>

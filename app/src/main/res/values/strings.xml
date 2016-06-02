@@ -5,4 +5,5 @@
     <string name="sample_device_admin">wonderful设备管理器</string>
 
     <string name="shortcut_name">一键锁屏</string>
+    <string name="title_activity_app_manager">AppManagerActivity</string>
 </resources>

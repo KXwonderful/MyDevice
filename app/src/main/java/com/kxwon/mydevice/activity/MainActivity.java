@@ -33,6 +33,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button btn_closeDevice;      //一键关机
     private Button btn_clearData;        //清除数据
     private Button btn_uninstall;        //清除数据
+    private Button btn_appManage;        //软件管理
 
     public static final String ACTION_ADD_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
 
@@ -64,6 +65,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_closeDevice = (Button) findViewById(R.id.btn_closeDevice);
         btn_clearData = (Button) findViewById(R.id.btn_clearData);
         btn_uninstall = (Button) findViewById(R.id.btn_uninstall);
+        btn_appManage = (Button) findViewById(R.id.btn_appManage);
 
         btn_openRocket.setOnClickListener(this);
         btn_closeRocket.setOnClickListener(this);
@@ -74,6 +76,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_closeDevice.setOnClickListener(this);
         btn_clearData.setOnClickListener(this);
         btn_uninstall.setOnClickListener(this);
+        btn_appManage.setOnClickListener(this);
     }
 
     @Override
@@ -112,6 +115,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.btn_closeDevice:
                 //一键关机
                 CloseDevice() ;
+                break;
+
+            case R.id.btn_appManage:
+                //软件管理
+                AppManager() ;
                 break;
 
             case R.id.btn_clearData:
@@ -248,6 +256,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
      * 一键关机
      */
     public void CloseDevice(){
+    }
+
+    /**
+     * 软件管理
+     */
+    public void AppManager(){
+        startActivity(new Intent(MainActivity.this, AppManagerActivity.class));
     }
 
     /**
