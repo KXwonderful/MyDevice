@@ -11,7 +11,7 @@
         android:id="@+id/iv_icon"
         android:layout_width="45dip"
         android:layout_height="45dip"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_default" />
 
     <LinearLayout
         android:paddingTop="5dip"

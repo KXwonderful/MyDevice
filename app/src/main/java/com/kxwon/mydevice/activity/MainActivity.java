@@ -34,6 +34,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button btn_clearData;        //清除数据
     private Button btn_uninstall;        //清除数据
     private Button btn_appManage;        //软件管理
+    private Button btn_processManage;    //进程管理
 
     public static final String ACTION_ADD_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
 
@@ -66,6 +67,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_clearData = (Button) findViewById(R.id.btn_clearData);
         btn_uninstall = (Button) findViewById(R.id.btn_uninstall);
         btn_appManage = (Button) findViewById(R.id.btn_appManage);
+        btn_processManage = (Button) findViewById(R.id.btn_processManage);
 
         btn_openRocket.setOnClickListener(this);
         btn_closeRocket.setOnClickListener(this);
@@ -77,6 +79,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_clearData.setOnClickListener(this);
         btn_uninstall.setOnClickListener(this);
         btn_appManage.setOnClickListener(this);
+        btn_processManage.setOnClickListener(this);
     }
 
     @Override
@@ -120,6 +123,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.btn_appManage:
                 //软件管理
                 AppManager() ;
+                break;
+
+            case R.id.btn_processManage:
+                //进程管理
+                ProcessManager() ;
                 break;
 
             case R.id.btn_clearData:
@@ -262,7 +270,18 @@ public class MainActivity extends Activity implements View.OnClickListener{
      * 软件管理
      */
     public void AppManager(){
-        startActivity(new Intent(MainActivity.this, AppManagerActivity.class));
+        Intent intent=new Intent(MainActivity.this,AppManagerActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * 进程管理
+     */
+    public void ProcessManager(){
+        Intent intent=new Intent(MainActivity.this,TaskManagerActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     /**

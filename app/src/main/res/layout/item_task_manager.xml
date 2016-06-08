@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/iv_app_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="10dip"
+        android:src="@mipmap/ic_default" />
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5.0dip"
+                android:singleLine="true"
+                android:text="标题"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_app_memory_size"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginBottom="1dp"
+                android:text="内存占用:22MB"
+                android:textColor="#99000000"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+
+
+    <CheckBox
+        android:id="@+id/tv_app_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingRight="5.0dip"
+        android:focusable="false"
+        android:clickable="false"
+        android:button="@drawable/btn_check"
+        />
+
+</LinearLayout>

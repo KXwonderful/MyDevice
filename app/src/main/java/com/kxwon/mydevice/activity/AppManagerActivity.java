@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.format.Formatter;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -45,6 +46,8 @@ public class AppManagerActivity extends Activity implements View.OnClickListener
     private TextView tv_rom;
     @ViewInject(R.id.tv_sd)
     private TextView tv_sd;
+    @ViewInject(R.id.ll_pb)
+    private LinearLayout ll_pb;
     private List<AppInfo> appInfos;
     private List<AppInfo> userAppInfos;
     private List<AppInfo> systemAppInfos;
@@ -231,6 +234,7 @@ public class AppManagerActivity extends Activity implements View.OnClickListener
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            ll_pb.setVisibility(View.INVISIBLE);   //隐藏加载的圆圈
             adapter = new AppManagerAdapter();
             listView.setAdapter(adapter);
         }
@@ -286,6 +290,10 @@ public class AppManagerActivity extends Activity implements View.OnClickListener
 
         setContentView(R.layout.activity_app_manager);
         ViewUtils.inject(this);
+
+        //展示加载的圆圈
+        ll_pb.setVisibility(View.VISIBLE);
+
         //获取到rom内存的运行的剩余空间
         long rom_freeSpace = Environment.getDataDirectory().getFreeSpace();
         //获取到SD卡的剩余空间
@@ -436,5 +444,26 @@ public class AppManagerActivity extends Activity implements View.OnClickListener
         popupWindowDismiss();
         unregisterReceiver(mUninstallReceiver);
         super.onDestroy();
+    }
+
+    /**
+     * 返回
+     * @param view
+     */
+    public void backToPrePage(View view){
+        Intent intent = new Intent(AppManagerActivity.this,MainActivity.class);// 跳转到主界面
+        startActivity(intent);
+        finish();// 关闭当前界面
+
+    }
+
+    // 按系统返回键事件
+    public boolean onKeyDown(int keyCode, KeyEvent event) {// 按键回调方法
+        if (keyCode == KeyEvent.KEYCODE_BACK) {// 判断按键键值做出相应操作
+            Intent intent = new Intent(AppManagerActivity.this,MainActivity.class);// 跳转到主界面
+            startActivity(intent);
+            finish();// 关闭当前界面
+        }
+        return false;
     }
 }
