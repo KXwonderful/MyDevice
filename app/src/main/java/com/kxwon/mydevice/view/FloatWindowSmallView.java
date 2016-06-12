@@ -1,5 +1,6 @@
 package com.kxwon.mydevice.view;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -10,14 +11,16 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kxwon.mydevice.R;
-import com.kxwon.mydevice.activity.BackgroundActivity;
+import com.kxwon.mydevice.bean.TaskInfo;
 import com.kxwon.mydevice.util.MyWindowManager;
 
 import java.lang.reflect.Field;
+import java.util.List;
 
 public class FloatWindowSmallView extends LinearLayout {
 
@@ -101,6 +104,8 @@ public class FloatWindowSmallView extends LinearLayout {
 	 */
 	private boolean isPressed;
 
+	private List<TaskInfo> taskInfos;
+
 	public FloatWindowSmallView(Context context) {
 		super(context);
 		windowManager = (WindowManager) context
@@ -147,6 +152,8 @@ public class FloatWindowSmallView extends LinearLayout {
 			try{
 				if (MyWindowManager.isReadyToLaunch()) {
 					launchRocket();
+
+					killProcess();
 
 					/*// 启动烟雾效果
 					Intent intent = new Intent(getContext(),
@@ -283,6 +290,22 @@ public class FloatWindowSmallView extends LinearLayout {
 			mParams.y = (int) (yDownInScreen - yInView);
 			windowManager.updateViewLayout(FloatWindowSmallView.this, mParams);
 		}
+
+	}
+
+	/**
+	 * 清理进程
+	 */
+	public void killProcess() {
+
+
+		Intent intent = new Intent();
+
+		//发送一个隐式意图
+		intent.setAction("com.kxwon.mydevice");
+
+		//发送广播
+		getContext().sendBroadcast(intent);
 
 	}
 

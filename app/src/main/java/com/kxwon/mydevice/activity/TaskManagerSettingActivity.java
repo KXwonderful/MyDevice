@@ -11,7 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.kxwon.mydevice.R;
-import com.kxwon.mydevice.receiver.KillProcessService;
+import com.kxwon.mydevice.service.KillProcessService;
 import com.kxwon.mydevice.util.SharedPreferencesUtils;
 import com.kxwon.mydevice.util.SystemInfoUtils;
 

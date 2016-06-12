@@ -53,7 +53,7 @@
 
         <!-- 自动清理进程服务 -->
         <service
-            android:name=".receiver.KillProcessService" >
+            android:name=".service.KillProcessService" >
         </service>
 
         <!-- receiver-->
@@ -71,6 +71,13 @@
 
         <!-- 桌面火箭service-->
         <service android:name=".service.FloatWindowService"></service>
+
+        <!-- 清理所有的进程 -->
+        <receiver android:name="com.kxwon.mydevice.receiver.KillProcessAllReceiver" >
+            <intent-filter>
+                <action android:name="com.kxwon.mydevice" />
+            </intent-filter>
+        </receiver>
     </application>
 
     <!-- 声明 创建和删除快捷方式时声明权限 -->

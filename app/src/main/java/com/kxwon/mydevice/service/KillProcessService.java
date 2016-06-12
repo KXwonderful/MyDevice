@@ -1,4 +1,4 @@
-package com.kxwon.mydevice.receiver;
+package com.kxwon.mydevice.service;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
