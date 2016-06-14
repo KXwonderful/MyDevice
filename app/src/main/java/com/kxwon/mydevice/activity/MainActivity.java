@@ -35,6 +35,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button btn_uninstall;        //清除数据
     private Button btn_appManage;        //软件管理
     private Button btn_processManage;    //进程管理
+    private Button btn_clearCache;       //缓存清理
+    private Button btn_lockApp;          //程序锁啦
+    private Button btn_recommendApp;     //软件推荐
+
 
     public static final String ACTION_ADD_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
 
@@ -68,6 +72,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_uninstall = (Button) findViewById(R.id.btn_uninstall);
         btn_appManage = (Button) findViewById(R.id.btn_appManage);
         btn_processManage = (Button) findViewById(R.id.btn_processManage);
+        btn_clearCache = (Button) findViewById(R.id.btn_clearCache);
+        btn_lockApp = (Button) findViewById(R.id.btn_lockApp);
+        btn_recommendApp = (Button) findViewById(R.id.btn_recommendApp);
 
         btn_openRocket.setOnClickListener(this);
         btn_closeRocket.setOnClickListener(this);
@@ -80,6 +87,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_uninstall.setOnClickListener(this);
         btn_appManage.setOnClickListener(this);
         btn_processManage.setOnClickListener(this);
+        btn_clearCache.setOnClickListener(this);
+        btn_lockApp.setOnClickListener(this);
+        btn_recommendApp.setOnClickListener(this);
     }
 
     @Override
@@ -128,6 +138,21 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.btn_processManage:
                 //进程管理
                 ProcessManager() ;
+                break;
+
+            case R.id.btn_clearCache:
+                //缓存清理
+                ClearCache() ;
+                break;
+
+            case R.id.btn_lockApp:
+                //程序锁啦
+                LockApp() ;
+                break;
+
+            case R.id.btn_recommendApp:
+                //软件推荐
+                RecommendApp() ;
                 break;
 
             case R.id.btn_clearData:
@@ -280,6 +305,33 @@ public class MainActivity extends Activity implements View.OnClickListener{
      */
     public void ProcessManager(){
         Intent intent=new Intent(MainActivity.this,TaskManagerActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * 缓存清理
+     */
+    public void ClearCache(){
+        Intent intent=new Intent(MainActivity.this,ClearCacheActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * 程序锁啦
+     */
+    public void LockApp(){
+        Intent intent=new Intent(MainActivity.this,LockAppActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * 软件推荐
+     */
+    public void RecommendApp(){
+        Intent intent=new Intent(MainActivity.this,RecommendAppActivity.class);
         startActivity(intent);
         finish();
     }
